@@ -16,7 +16,6 @@ public class Employee {
 	private double salary;
 	private double taxRate = 0.15;
 	private double tax;
-	private int e;
 	
 	//constructor
 	//나머지는 자동계산, 필수입력 사번,  이름, 직급, 입사일자, 성과지표
