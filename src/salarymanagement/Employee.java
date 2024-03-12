@@ -36,7 +36,7 @@ public class Employee {
 		}
 	
 	public String getEmployeeNum() {
-		return employeeNum;
+		return employeeNum; //사번
 	}
 
 	public void setEmployeeNum(String employeeNum) {
