@@ -145,6 +145,7 @@ public class Employee {
 				overPay.getOverPay() +
 				(kpi.getKpiRate()* position.getPosition));
 		tax = salary * taxRate;
+		System.out.println("호호");
 		salary = salary - tax;
 	}
 	
