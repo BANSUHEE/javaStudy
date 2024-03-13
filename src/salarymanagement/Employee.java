@@ -139,13 +139,11 @@ public class Employee {
 		
 		return result.getYears();
 	}
-	
 	public void salaryResult() { // 급여반환
-		salary = position.getPosition() + payStep.getStepSalary() +
+		salary = position.getPositionPay() + payStep.getStepSalary() +
 				overPay.getOverPay() +
-				(kpi.getKpiRate()* position.getPosition));
+				(kpi.getKpiRate()* position.getPositionPay());
 		tax = salary * taxRate;
-		System.out.println("호호");
 		salary = salary - tax;
 	}
 	
