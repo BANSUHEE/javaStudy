@@ -13,7 +13,7 @@ public class GenericEx1<T> {
 
 	public void print() {
 		for (T s : v)
-			out.println(s);
+			//out.println(s);
 	}
 
 	public class GennericEx1Main{

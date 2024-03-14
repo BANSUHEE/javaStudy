@@ -14,6 +14,14 @@ public class Subject {
 	public void setSubject(int subject) {
 		this.Subject = subject; //주는 곳
 	}
+	public int getScore() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void setScore(int eng) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 

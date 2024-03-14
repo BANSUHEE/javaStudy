@@ -1,175 +1,170 @@
-//package Student_sb;
-//import java.util.Scanner;
-//
-//
-//public class Student_final{
-//        private Student_final stu;// 성적관리 대상 학생 수
-//        private Student_final[] stuArray; // 여러명의 학생을 담을 배열.
-//        private int num; // 담은 학생 수를 저장할 변수.
-//        Scanner sc = new Scanner(System.in);
-//        
-//        // Constructor
-//        // 모든 학생을 관리할 수 있는 객체 생성시, 모든학생들을 담을 sutArray를 생성한다.
-//        // 매개변수 생성자는 허용되지않는다.
-//        public Student_final() {
-//                stuArray = new Student_final[100];
-//        }
-//
-//
-//        public int getNum() {
-//                return num;
-//        }
-//
-//
-//        public void addNum() {
-//                this.num = this.num + 1;
-//        }
-//
-//
-//        public void mainDisplay() {
-//                System.out.println("==============학생 성적 관리 프로그램 ==============" + '\n' + "1. 학생 성적 입력" + '\n' + "2. 학생 성적 수정"
-//                                + '\n' + "3. 학생 성적 검색" 
-//                                + '\n' + "4. 학생 성적 출력" 
-//                                + '\n' + "5. 프로그램 종료" + '\n'
-//                                + "===============================================");
-//        }
-//
-//
-//        public void addData() {
-//                System.out.println("이름, 국어, 영어, 수학 점수를 순서대로 입력해주세요.");
-//
-//
-//                stuArray[getNum()] = new Student_final();
-//                stuArray[getNum()].setName(sc.next());
-//                stuArray[getNum()].setKor(sc.nextInt());
-//                stuArray[getNum()].setEng(sc.nextInt());
-//                stuArray[getNum()].setMat(sc.nextInt());
-//
-//
-//                addNum(); // 총 학생수 증가.
-//        }
-//
-//
-//        public void viewData() {
-//                System.out.println("============== 모든 학생들의 성적표==============" + '\n'
-//                                        + "이름　　　　국어　　　　영어　　　　수학　　　　총합　　　　평균");
-//                for (int i = 0; i < num; i++) {
-//                        System.out.print(stuArray[i].getName() + '\t' 
-//                                        + stuArray[i].getKor() + '\t' 
-//                                        + stuArray[i].getEng() + '\t'
-//                                        + stuArray[i].getMat() + '\t' 
-//                                        + stuArray[i].getTotal() + '\t' 
-//                                        + stuArray[i].getAvg() + '\n');
-//                }
-//        }
-//        
-//        public void selectView(int i) {
-//                System.out.println( "이름　　　　국어　　　　영어　　　　수학　　　　총합　　　　평균");
-//                System.out.print(stuArray[i].getName()+'\t'+
-//                                 stuArray[i].getKor()+'\t'+
-//                                 stuArray[i].getEng()+'\t'+
-//                                 stuArray[i].getMat()+'\t'+
-//                                 stuArray[i].getTotal()+'\t'+
-//                                 stuArray[i].getAvg()+'\n');
-//        }
-//        
-//        public void search() {
-//                
-//                System.out.println("1. 이름검색  2. 평균 검색");
-//                int type = sc.nextInt();
-//                int []idx = new int[num]; //idx배열 생
-//                int accIdx = 0;
-//                        
-//                if (type == 1) {
-//                        System.out.println("검색할 학생 이름을 입력해주세요."); 
-//                        String name = sc.next();  //name에 입력값 
-//                        
-//                        for (int i=0; i<num; i++) {
-//                                if(stuArray[i].getName().equals(name)){
-//                                        selectView(i);
-//                                } else
-//                                        continue; 
-//                                
-//
-//
-//                        }
-//                                
-//                        } else if (type == 2){
-//                                
-//                                System.out.println("평균 몇점 이상의 학생을 조회할까요?");
-//                                int avgScore = sc.nextInt();
-//                                
-//                                for (int i=0; i<num; i++) {
-//                                        if(stuArray[i].getAvg() >= avgScore ){
-//                                                selectView(i);
-//                                        } else 
-//                                                continue;
-//                                
-//                        }
-//                }
-//        }
-//
-//
-//        public void updateData() {
-//                int updateNum = 0;
-//                int prev = 0;
-//                int close = 0;
-//                
-//                do {
-//                        updateNum = 0;
-//                        String name = "";
-//                        System.out.println("점수를 수정할 학생 이름을 입력해주세요.");
-//                        name = sc.next();
-//
-//
-//                        for (int i = 0; i < num ; i++) {
-//                                        
-//                                if (stuArray[i].getName().equals(name)) {
-//                                        selectView(i);
-//                                        
-//                                        while (updateNum != 4) {
-//                                                System.out.println("수정할 과목을 입력해주세요." + '\n' 
-//                                                                                  + "1. 국어" + '\t' + "2. 영어 " + '\n' 
-//                                                                                  + "3. 수학" + '\t' + "4. 다른 학생 수정"+'\n');
-//                                                updateNum = sc.nextInt();
-//                                                switch (updateNum) {
-//                                                case 1:
-//                                                        System.out.println("수정할 점수를 입력해주세요.");
-//                                                        prev = stuArray[i].getKor();
-//                                                        stuArray[i].setKor(sc.nextInt());
-//                                                        System.out.println( "수정이 완료되었습니다." + '\n' 
-//                                                                                                + "수정 전 : " + prev + '\t' 
-//                                                                                                + "수정 후 : " + stuArray[i].getKor());
-//                                                        return;
-//                                                case 2:
-//                                                        System.out.println("수정할 점수를 입력해주세요.");
-//                                                        prev = stuArray[i].getEng();
-//                                                        stuArray[i].setEng(sc.nextInt());
-//                                                        System.out.println( "수정이 완료되었습니다." + '\n' 
-//                                                                        + "수정 전 : " + prev + '\t' 
-//                                                                        + "수정 후 : " + stuArray[i].getEng());
-//                                                        return;
-//                                                case 3:
-//                                                        System.out.println("수정할 점수를 입력해주세요.");
-//                                                        prev = stuArray[i].getMat();
-//                                                        stuArray[i].setMat(sc.nextInt());
-//                                                        System.out.println( "수정이 완료되었습니다." + '\n' 
-//                                                                        + "수정 전 : " + prev + '\t' 
-//                                                                        + "수정 후 : " + stuArray[i].getMat());
-//                                                        return;
-//                                                case 4:
-//                                                        break; //       다른학생선택시 switch문을 벗어난다.
-//                                                default:
-//                                                        System.out.println("1 ~ 4 사이의 숫자로 입력해주세요.");
-//                                                }
-//                                                
-//                                                if (updateNum == 4) {
-//                                                        break; // switch문을 벗어난 뒤 for문을 벗어난다.
-//                                                }
-//                                        }
-//                                } else
-//                                        continue;
-//                        }
-//                } while (true);
-//        }
-//}
+package Student_sb;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Student_final{
+
+	    private Name name;
+	    private Subject kor;
+	    private Subject eng;
+	    private Subject mat;
+	    private int total;
+	    private float avg;
+	    private int index;
+	    private ArrayList<Student_final> arr;
+
+	    public Student_final() {
+	        //this(100);
+	        name = new Name();
+	        kor = new Subject();
+	        eng = new Subject();
+	        mat = new Subject();
+	        arr = new ArrayList<Student_final>();
+	    }
+
+	    public Student_final(Name name, Subject kor, Subject eng, Subject mat) {
+	        this.name = name;
+	        this.kor = kor;
+	        this.eng = eng;
+	        this.mat = mat;
+	    }
+	    
+	 
+	    public int getIndex() {
+	        return index;
+	    }
+	    
+//	    public ArrayList<Student_final> getStu() {
+//	        return stu;
+//	    }
+
+	    public void setName(String name) {
+	        this.name.setName(name);
+	    }
+
+	    public void setKor(int kor) {
+	        this.kor.setSubject(kor);
+	    }
+
+	    public void setEng(int eng) {
+	        this.eng.setSubject(eng);
+	    }
+
+	    public void setMat(int mat) {
+	        this.mat.setSubject(mat);
+	    }
+
+	    public String getName() {
+	        return name.getName();
+	    }
+
+	    public int getKor() {
+	        return kor.getSubject();
+	    }
+
+	    public int getEng() {
+	        return eng.getSubject();
+	    }
+
+	    public int getMat() {
+	        return mat.getSubject();
+	    }
+
+	    public void setTotal(int total) {
+	        this.total = total;
+	    }
+
+	    public int getTotal() {
+	        return total = getKor() + getEng() + getMat();
+	    }
+
+	    public float getAvg() {
+	        return avg = total / 3.0f;
+	    }
+	
+
+	    public void setModify() {
+	    	Scanner sc = new Scanner(System.in);
+	    	   System.out.println("누구의 점수를 수정할까요? ");
+	    	   String name = sc.next();
+	    	   
+	    	   int i=0;
+	    	   while(true) {
+	    	      if(arr) {
+	    	         System.out.println("검 색 완 료 ");
+	    	         
+	    	         while(true) {
+	    	            System.out.println("1.국어점수수정");
+	    	            System.out.println("2.영어점수수정");
+	    	            System.out.println("3.수학점수수정");
+	    	            System.out.println("4.수정안함");
+	    	            
+	    	            int n = sc.nextInt();
+	    	            switch(n) {
+	    	            case 1: arr.add(setKor).setKor(sc.nextInt()); break;
+	    	            case 2: arr.add(setEng)(sc.nextInt()); break;
+	    	            case 3: arr[i].setMat(sc.nextInt()); break;
+	    	            
+	    	            }
+	    	            if(n == 4) break; 
+	    	         }
+	    	         break;
+	    	      }
+	    	      i++;
+	    	   }
+	    }
+
+	    public void setSearch() {
+	    	 Scanner sc = new Scanner(System.in);
+	    	   System.out.println("찾는 학생 이름을 검색해주세요 :");
+	    	   String name = sc.next();
+	    	   
+	    	   int i=0;
+	    	   while(true) {
+	    	      if( name.equals(arr.add(getName)) {
+	    	         System.out.println("검 색 완 료");
+	    	         System.out.println("-----이름 국어점수 영어점수 수학점수 총점수 평균 -----");
+	    	         System.out.print(arr.get(getName())+"\t");
+	    	         System.out.print(arr.get(getKor())+"\t");
+	    	         System.out.print(arr.get(getEng())+"\t");
+	    	         System.out.print(arr.get(getMat())+"\t");
+	    	         System.out.print(arr.get(getTotal())+"\t");
+	    	         System.out.println(arr.get(getAvg());
+	    	         
+	    	         break;
+	    	         
+	    	      }
+	    	      
+	    	      i++;
+	    	   }
+	    }
+
+	    public void setDisp() {
+	    	 for(Student_final s:arr) {
+	    	      if(s == null) break;
+	    	      System.out.print(s.getName()+"\t");
+	    	      System.out.print(s.getKor()+"\t");
+	    	      System.out.print(s.getEng()+"\t");
+	    	      System.out.print(s.getMat()+"\t");
+	    	      System.out.print(s.getTotal()+"\t");
+	    	      System.out.println(s.getAvg());}
+	    	   
+	    }
+
+	    public void setStudent() {
+	    	Student_final stu = new Student_final(); // 학생객체생성
+	    	   Scanner sc = new Scanner(System.in);
+	    	   ArrayList<Student_final> arr = new ArrayList<>();
+	    	   System.out.println("학생 이름,국어,영어,수학 점수를 순서대로 입력해주세요");
+	    	   stu.setName(sc.next());
+	    	   stu.setKor(sc.nextInt());
+	    	   stu.setEng(sc.nextInt());
+	    	   stu.setMat(sc.nextInt());
+	    	   stu.getTotal();
+	    	   stu.getAvg();
+	    	   
+	    	   arr=stu;  // 연결
+
+	    }
+	}
