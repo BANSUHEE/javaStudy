@@ -36,7 +36,7 @@ public class Employee {
 		}
 	
 	public String getEmployeeNum() {
-		return employeeNum;
+		return employeeNum; //사번
 	}
 
 	public void setEmployeeNum(String employeeNum) {
@@ -139,11 +139,10 @@ public class Employee {
 		
 		return result.getYears();
 	}
-	
 	public void salaryResult() { // 급여반환
-		salary = position.getPosition() + payStep.getStepSalary() +
+		salary = position.getPositionPay() + payStep.getStepSalary() +
 				overPay.getOverPay() +
-				(kpi.getKpiRate()* position.getPosition));
+				(kpi.getKpiRate()* position.getPositionPay());
 		tax = salary * taxRate;
 		salary = salary - tax;
 	}
