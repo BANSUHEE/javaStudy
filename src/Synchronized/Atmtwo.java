@@ -1,3 +1,6 @@
+// < 쓰레드 구현>
+
+
 package Synchronized;
 
 class ATMTwo implements Runnable {
